@@ -1,8 +1,8 @@
 pipeline {
     agent {
-         docker {
+           docker {
         image 'abhishekf5/maven-abhishek-docker-agent:v1'
-        args '--user root -v /var/run/docker.sock:/var/run/docker.sock -w /var/jenkins_home/workspace/ultimate-demo/'
+        args '--user root -v /var/run/docker.sock:/var/run/docker.sock -w C:/ProgramData/Jenkins/.jenkins/workspace/ultimate-demo/'
     }
 
     }
