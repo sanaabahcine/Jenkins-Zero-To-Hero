@@ -27,6 +27,14 @@
     <dependencies>
 
         <dependency>
+
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version><!-- Insérez la version de Logback ici --></version>
+</dependency>
+
+                 
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
