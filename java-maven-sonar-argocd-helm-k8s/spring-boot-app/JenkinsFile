@@ -26,19 +26,18 @@ pipeline {
         }
       }
     }
-    stage('Build and Push Docker Image') {
-      environment {
-        DOCKER_IMAGE = "abhishekf5/ultimate-cicd:%BUILD_NUMBER%"
-        // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
-        REGISTRY_CREDENTIALS = credentials('docker-cred')
-      }
-      steps {
-        script {
-          bat 'cd java-maven-sonar-argocd-helm-k8s\\spring-boot-app && docker build -t %DOCKER_IMAGE% .'
-          bat 'docker push %DOCKER_IMAGE%'
-        }
-      }
+stage('Build and Push Docker Image') {
+  environment {
+    DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${env.BUILD_NUMBER}"
+    REGISTRY_CREDENTIALS = credentials('docker-cred')
+  }
+  steps {
+    script {
+      bat 'cd java-maven-sonar-argocd-helm-k8s\\spring-boot-app && docker build -t $DOCKER_IMAGE .'
+      bat 'docker push $DOCKER_IMAGE'
     }
+  }
+}
     stage('Update Deployment File') {
       environment {
         GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
